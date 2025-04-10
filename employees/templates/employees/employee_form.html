@@ -1,0 +1,22 @@
+{% extends 'employees/base.html' %}
+
+{% block content %}
+<div class="employee-wrapper">
+    <div class="form-header text-center">
+        <h1 class="mb-3">
+            {% if form.instance.pk %}Edit{% else %}Add{% endif %} Employee
+        </h1>
+    </div>
+
+    <div class="form-card">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-actions text-center mt-3">
+                <button type="submit" class="btn btn-success">💾 Save</button>
+                <a href="{% url 'employee_list' %}" class="btn btn-secondary">↩️ Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

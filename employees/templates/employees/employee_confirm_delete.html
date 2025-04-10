@@ -1,0 +1,18 @@
+{% extends 'employees/base.html' %}
+
+{% block content %}
+<div class="employee-wrapper">
+    <div class="form-card text-center">
+        <h1 class="text-danger mb-3">Delete Employee</h1>
+        <p class="mb-4">⚠️ Are you sure you want to delete <strong>"{{ employee.name }}"</strong>?</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-actions d-flex justify-content-center gap-3">
+                <button type="submit" class="btn btn-danger">🗑️ Confirm Delete</button>
+                <a href="{% url 'employee_list' %}" class="btn btn-secondary">↩️ Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
